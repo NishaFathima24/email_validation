@@ -1,0 +1,53 @@
+
+
+function validateForm() {
+
+    let name = document.myForm.fname.value.trim();
+
+    let email = document.myForm.femail.value.trim();
+
+    let password = document.myForm.fpassword.value;
+
+    // NAME VALIDATION
+    if (name === '') {
+        alert('Name cannot be empty');
+        document.myForm.fname.focus();
+        return false;
+    }
+
+    if (name.length < 3) {
+        alert('Name should contain minimum 3 characters');
+        document.myForm.fname.focus();
+        return false;
+    }
+
+    // EMAIL VALIDATION
+    let pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (email === '') {
+        alert('Email cannot be empty');
+        document.myForm.femail.focus();
+        return false;
+    }
+
+    if (!pattern.test(email)) {
+        alert('Please enter a valid email');
+        document.myForm.femail.focus();
+        return false;
+    }
+
+    // PASSWORD VALIDATION
+    if (password === '') {
+        alert('Password cannot be empty');
+        document.myForm.fpassword.focus();
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert('Password should contain minimum 6 characters');
+        document.myForm.fpassword.focus();
+        return false;
+    }
+
+    return true;
+}
